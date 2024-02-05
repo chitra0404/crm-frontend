@@ -2,7 +2,7 @@ import { useState ,useEffect} from 'react'
 import { BrowserRouter as Router, Route, Routes,useLocation } from "react-router-dom";
 import { Base_Url } from '../config/api';
 import Register from './Register';
-import AccountActivation from './AccountActivation';
+
 import Login from './Login';
 import Regis from './staff/Register';
 import Account from './AccountActivation';
@@ -28,6 +28,7 @@ import CancelRequest from './request/CancelRequest';
 import GetEmp from './GetEmp';
 import Contact from './contactdetails';
 import StDashboard from './stDashboard';
+import AccountActivation from './staff/AccountActivation';
 
 
 
@@ -42,6 +43,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Dashboard/>}></Route> 
       <Route path="/register" element={<Register/>}></Route>
+      <Route path="/acc/:id" element={<Account/>}></Route>
         <Route path="/user/register" element={<Regis/>}></Route>
         <Route path="/user/acc/:id" element={<AccountActivation/>}></Route> 
         <Route path="/users/login" element={<Log/>}></Route>
@@ -52,7 +54,7 @@ function App() {
         <Route path="/emp" element={<GetEmp/>}></Route>
         <Route path="/contact" element={<Contact/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
-        <Route path="/acc/:id" element={<Account/>}></Route>
+      
   
         
 
