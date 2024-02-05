@@ -5,7 +5,7 @@ import Register from './Register';
 
 import Login from './Login';
 import Regis from './staff/Register';
-import Account from './AccountActivation';
+
 import Log from './staff/Login';
 import Dashboard from './Dashboard';
 import ViewProduct from './ViewProduct';
@@ -15,7 +15,7 @@ import GetOrder from './order/GetOrder';
 import EditLead from './Lead/EditLead';
 import GetRequest from './request/request';
 import StaffDashboard from './staff/StaffDashboard';
-
+import AccountActivation from './AccountActivation';
 import UpdateOrder from './order/UpdateOrder';
 import GetReq from './request/GetReq';
 import ADDLead from './Lead/AddLead';
@@ -43,7 +43,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Dashboard/>}></Route> 
       <Route path="/register" element={<Register/>}></Route>
-      <Route path="/acc/:id" element={<Account/>}></Route>
+      <Route path="/acc/:id" element={<AccountActivation/>}></Route>
         <Route path="/user/register" element={<Regis/>}></Route>
         <Route path="/user/acc/:id" element={<AccountActivation/>}></Route> 
         <Route path="/users/login" element={<Log/>}></Route>
