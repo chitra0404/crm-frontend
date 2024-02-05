@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { Base_Url } from "../../config/api";
 
-function AccountActivation() {
+function AccActivation() {
   const { id } = useParams();
   const Navigate = useNavigate();
 
@@ -63,4 +63,4 @@ function AccountActivation() {
   );
 }
 
-export default AccountActivation;s
+export default AccActivation;

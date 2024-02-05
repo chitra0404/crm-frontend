@@ -28,7 +28,7 @@ import CancelRequest from './request/CancelRequest';
 import GetEmp from './GetEmp';
 import Contact from './contactdetails';
 import StDashboard from './stDashboard';
-import AccountActivation from './staff/AccountActivation';
+import AccActivation from './staff/AccountActivation';
 
 
 
@@ -45,7 +45,7 @@ function App() {
       <Route path="/register" element={<Register/>}></Route>
       <Route path="/acc/:id" element={<AccountActivation/>}></Route>
         <Route path="/user/register" element={<Regis/>}></Route>
-        <Route path="/user/acc/:id" element={<AccountActivation/>}></Route> 
+        <Route path="/user/acc/:id" element={<AccActivation/>}></Route> 
         <Route path="/users/login" element={<Log/>}></Route>
         <Route path="/staf" element={<StaffDashboard/>}></Route>
    
