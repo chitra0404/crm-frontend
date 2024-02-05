@@ -52,7 +52,7 @@ function App() {
         <Route path="/emp" element={<GetEmp/>}></Route>
         <Route path="/contact" element={<Contact/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
-        <Route path="/accountactivation/:id" element={<Account/>}></Route>
+        <Route path="/acc/:id" element={<Account/>}></Route>
   
         
 
