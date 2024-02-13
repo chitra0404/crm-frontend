@@ -17,14 +17,14 @@ function Dashboard() {
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <a className="nav-link bg-light  active" aria-current="page" href="#"><Link to="/register">Customer Registeration</Link></a>
+          <a className="nav-link bg-primary text-white  active" aria-current="page" href="#"><Link className='text-white' to="/register">Customer Registeration</Link></a>
         </li>
         </ul>
     </div>
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <a className="nav-link bg-light active" aria-current="page" href="#"><Link to="/user/register">Staff Registeration</Link></a>
+          <a className="nav-link bg-primary active" aria-current="page" href="#"><Link className='text-white' to="/user/register">Staff Registeration</Link></a>
         </li>
         </ul>
     </div>
@@ -48,6 +48,7 @@ function Dashboard() {
   </nav>
   </div>
 </nav>
+<img src="https://stitchcraftmarketing.com/wp-content/uploads/2017/10/SCMCRM.jpg" className='img-fluid' alt='500*200'/>
   </div>
   )
 }

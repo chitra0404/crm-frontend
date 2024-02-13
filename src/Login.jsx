@@ -20,7 +20,7 @@ function Login() {
         Navigate("/cus");
       }, 500);
     } catch (err) {
-      console.log(err.response.data);
+      console.log(err);
       setSuccess(false);
       setInvaild(true);
     }

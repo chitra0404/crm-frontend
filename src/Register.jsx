@@ -22,9 +22,9 @@ function Register() {
       
       setRegistered(false)
       setSuccess(true);
-    //   setTimeout(() => {
-    //     Navigate("/");
-    //   }, 1000);
+      setTimeout(() => {
+        Navigate("/");
+       }, 1000);
     } catch (error) {
       console.error(error);
       setRegistered(true)

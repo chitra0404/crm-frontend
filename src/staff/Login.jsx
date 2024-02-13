@@ -27,7 +27,7 @@ function Log() {
         Navigate("/staf");
       }, 500);
     } catch (err) {
-      
+      console.log(err);
       setSuccess(false);
       setInvaild(true);
     }
@@ -80,7 +80,7 @@ function Log() {
                           className="fas fa-cubes fa-2x me-3"
                           style={{ color: "#ff6219" }}
                         ></i>
-                        <span className="h1 fw-bold">Url Shortener</span>
+                        <span className="h1 fw-bold">Login to CRM PORTAL</span>
                       </div>
 
                       <h5
