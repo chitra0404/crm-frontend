@@ -9,6 +9,7 @@ function GetReq() {
 
 
     const [request, setRequest] = useState([]);
+    const [selectedStatus, setSelectedStatus] = useState('');
     const navigate=useNavigate();
     const attendRequest = async(req) => {
         const ok = window.confirm("Do you want to attend request") 
@@ -45,6 +46,9 @@ function GetReq() {
         }
 
     }
+    const handleStatusChange = (event) => {
+      setSelectedStatus(event.target.value);
+    };
 
     useEffect(() => {
         axios.get(`${Base_Url}/ad/get`)
@@ -55,14 +59,26 @@ function GetReq() {
                localStorage.setItem("data",JSON.stringify(res.data));
            })
         }, []);
+        const filteredRequests = selectedStatus
+        ? request.filter((item) => item.request_status === selectedStatus)
+        : request;
 
   return (
   
- <div>
+ <div className=' row mt-3 pt-5'>
+   <div className=' d-flex align-items-center justify-content-center mt-5 pt-5'>
+        <label htmlFor="status">Request Status:</label>
+        <select id="status" value={selectedStatus} onChange={handleStatusChange}>
+          <option value="">All</option>
+          <option value="PENDING">Pending</option>
+          <option value="ASSIGNED">Assigned</option>
+          <option value="RESOLVED">Resolved</option>
+        </select>
+      </div>
 
 {
-    request.map((item, index) => (
-        <div className='row align-items-center'>
+   filteredRequests.map((item, index) => (
+        <div className='d-flex align-items-center justify-content-center '>
             <div className="card p-3 mb-2 bg-dark-subtle text-emphasis-dark" key={item.requestID} style={{width:36+"rem"}}>
          
             <div className="card-body p-3 mb-2 bg-dark-subtle text-emphasis-dark">

@@ -103,7 +103,7 @@ function GetOrder() {
   return (
     <div>
     <div>
-    <section className="vh-100" style={{ backgroundColor: "#9A616D" }}>
+    <section className="vh-100" >
       <div className="d-flex align-items-center h-100 gradient-custom-3">
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">

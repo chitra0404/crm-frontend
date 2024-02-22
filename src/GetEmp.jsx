@@ -35,13 +35,14 @@ function GetEmp() {
 
   return (
     <div>
-    <h2 className="bg-warning align-middle">employeeDetails</h2>
-    <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-  <button className="btn btn-primary me-md-2" type="button" onClick={()=>navigate("/user/register")} >ADD LEAD</button>
+    <div className=" vh-100 vw-100 justify-content-center mt-5 pt-5  ">
+    {/* <h2 className="bg-warning align-middle">employeeDetails</h2> */}
+    
+  {/* <button className="btn btn-primary me-md-2" type="button" onClick={()=>navigate("/user/register")} >add</button> */}
   
-</div>
+
  
-    <table className='table table-hover'>
+    <table className='table vw-100 '>
         <thead className='table-dark'>
             <tr>
                 <th >Emp_id</th>
@@ -58,11 +59,11 @@ function GetEmp() {
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody className='vw-100 justify-content-center'>
             {
     emp.map((item, index) => (
                 // update===item.id?<EditList item={item} user={user} setUser={setUser} handleEdit={handleEdit}  />:
-                <tr  className="table-success" key={index}> 
+                <tr  className="table" key={index}> 
                     <td >{item._id}</td>
                     <td>{item.name}</td>
                     <td>{item.email}</td>
@@ -81,6 +82,7 @@ function GetEmp() {
 
   
     
+    </div>
     </div>
   )
 }

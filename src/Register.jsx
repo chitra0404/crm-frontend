@@ -86,7 +86,7 @@ function Register() {
   });
 
   return (
-    <section className="vh-100 " style={{ backgroundColor: "#0d6efd" }}>
+    <section className="vh-100 vw-100 " style={{ backgroundColor: "#0d6efd" }}>
       <div className="container py-5 h-100">
         
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -97,7 +97,7 @@ function Register() {
                 <div className="row">
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
                   <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                    src="https://www.creativehatti.com/wp-content/uploads/edd/2022/01/Girl-graphic-designer-is-sitting-on-a-chair-and-doing-work-on-laptop-7-large.jpg"
                     alt="login form"
                     className="img-fluid"
                     style={{ borderRadius: "1rem 0 0 1rem" }}

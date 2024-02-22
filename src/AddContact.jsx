@@ -11,16 +11,15 @@ import { PRODUCT_TYPE } from './Data/producttypes';
 
 
 
-function AddProduct() {   
+function AddContact() {   
   
     const [open,setOpen]=useState(true);
-    const [newrequest, setNewRequest] =  useState({
-     product_name:"",
-      product_type:"",
-       product_price: "",
-        product_stock: "",
-       product_desc: "",
-       product_status: "",
+    const [newcontact, setNewContact] =  useState({
+     name:"",
+      address:"",
+       phonenumber: "",
+        email: "",
+
       
      
     });
@@ -30,27 +29,24 @@ function AddProduct() {
         setOpen(true);
         
 
-        const request= {...newrequest }
+        const contact= {...newcontact }
         
         try {
         const token = localStorage.getItem('tokenAuth')
         const email = localStorage.getItem('email')
                 console.log(token, email)
             const config = { headers : {"x-auth-token" : token}} 
-        const response = await axios.post(`${Base_Url}/ad/add`, 
-        request, config) 
+        const response = await axios.post(`${Base_Url}/contact/create`, 
+        contact, config) 
         //console.log(response);
         if(response.status === 200){
             //console.log(response)
            
-            setNewRequest({
-                product_name:"",
-                product_type:"",
-                 product_price: "",
-               
-                 product_stock: "",
-                 product_desc: "",
-                 product_status: "",
+            setNewContact({
+                name:"",
+                address:"",
+                 phonenumber: "",
+                  email: "",
                 
                 
                 
@@ -64,12 +60,12 @@ function AddProduct() {
       catch(error){
         console.log(error);
   
-        if( error.response.status === 403) {
-          window.alert("Session expired. Login again to continue")
-          navigate('/')
+        // if( error.response.status === 403) {
+        //   window.alert("Session expired. Login again to continue")
+        //   navigate('/')
       }
     }
-}
+
 
     // useEffect(() => {
     //      axios.post(`${Base_Url}/ad/createRequest`)
@@ -83,7 +79,7 @@ function AddProduct() {
 
 
   return (
-    <div>
+    
     <div>
     <section className="vh-100 vw-100 pt-5 mt-5" >
       <div className="d-flex align-items-center h-100 gradient-custom-3">
@@ -93,45 +89,33 @@ function AddProduct() {
               <div className="card" style={{ borderRadius: "15px" }}>
                 <div className="card-body p-4">
                   <h2 className="text-uppercase text-center mb-4">
-                ADD PRODUCT DETAILS
+                ADD Contact DETAILS
                   </h2>
 
                   <form onSubmit={handleSubmit}>
-                    <div className="form-outline mb-2">
-                      <input
-                        type="text"
-                        id="product_name"
-                        className="form-control"
-                        placeholder="Enter product_namet"
-                        value={newrequest.product_name}
-                        onChange={(e) => setNewRequest({...newrequest, product_name: e.target.value})}
-
-                      
-                      />
-                     
-                    </div>
+                 
 
                     <div className="form-outline mb-2">
                       <input
                         type="text"
                         id="product_type"
                         className="form-control"
-                        placeholder="Enter the product_type"
-                        value={newrequest.product_type}
-                        onChange={(e) => setNewRequest({...newrequest, product_type: e.target.value})}
+                        placeholder="Enter the name"
+                        value={newcontact.name}
+                        onChange={(e) => setNewContact({...newcontact, name: e.target.value})}
                         
                       />
                      
                     </div>
                     <div className="form-outline mb-2">
                       <input
-                        type="number"
+                        type="text"
                         id="product_pricel"
                         className="form-control"
-                        placeholder="Enter the product_price"
-                        value={newrequest.product_price}
+                        placeholder="Enter the address"
+                        value={newcontact.address}
 
-                        onChange={(e) => setNewRequest({...newrequest, product_price: e.target.value})}
+                        onChange={(e) => setNewContact({...newcontact,address: e.target.value})}
 
 
                       
@@ -143,11 +127,11 @@ function AddProduct() {
                     <div className="form-outline mb-2">
                       <input
                         type="number"
-                        id="product_stock"
+                        id="phonenumber"
                         className="form-control"
-                        placeholder="Enter your product_stock"
-                        value={newrequest.product_stock}
-                        onChange={(e) => setNewRequest({...newrequest, product_stock: e.target.value})}
+                        placeholder="Enter your phonenumber"
+                        value={newcontact.phonenumber}
+                        onChange={(e) => setNewContact({...newcontact, phonenumber: e.target.value})}
                        
                       />
                       
@@ -155,11 +139,11 @@ function AddProduct() {
                     <div className="form-outline mb-2">
                       <input
                         type="text"
-                        id="product_des"
+                        id="email"
                         className="form-control"
-                        placeholder="Enter your product_description"
-                        value={newrequest.product_desc}
-                        onChange={(e) => setNewRequest({...newrequest, product_desc: e.target.value})}
+                        placeholder="Enter your email"
+                        value={newcontact.email}
+                        onChange={(e) => setNewContact({...newcontact, email: e.target.value})}
                        
                       />
                       
@@ -167,26 +151,20 @@ function AddProduct() {
                     <div className="form-outline mb-2">
                       <input
                         type="text"
-                        id="product_status"
+                        id="company"
                         className="form-control"
-                        placeholder="Enter the product_status"
-                        value={newrequest.product_status}
-                        onChange={(e) => setNewRequest({...newrequest, product_status: e.target.value})}
+                        placeholder="Enter the company"
+                        value={newcontact.company}
+                        onChange={(e) => setNewContact({...newcontact, company: e.target.value})}
                        
                       />
-                      </div>
+                      
+                    </div>
+                   
                       
                     
 
-                    {/* <select className="form-select" aria-label="Default select example">
-  <option selected>Open this select menu</option>
-  <option value="APPROACHED">APPROACHED"</option>
-  <option value="NEGOTIATION">NEGOTIATION</option>
-  <option value="EARNED">EARNED</option>
-  <option value=" LOST">
-    LOST
-  </option>
-</select> */}
+                  
 
                   
 
@@ -210,8 +188,8 @@ function AddProduct() {
     </section>   
     </div>
     
-    </div>
+  
   )
 }
 
-export default AddProduct;
+export default AddContact;

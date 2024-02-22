@@ -13,6 +13,7 @@ function Log() {
 
   const HandleLogin = async (email, password) => {
     try {
+    
       const res =  await axios.post(`${Base_Url}/user/login`,{email,password})
      
    
@@ -58,15 +59,16 @@ function Log() {
   });
 
   return (
-    <section className="vh-100" style={{ backgroundColor: "#0d6efd" }}>
+    <section className="vh-100 vw-100 justify-content-center" style={{ backgroundColor: "#0d6efd" }}>
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
+          
           <div className="col col-xl-10">
             <div className="card" style={{ borderRadius: "1rem" }}>
               <div className="row">
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
                   <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                    src="https://media.istockphoto.com/id/1267110917/vector/black-woman-chatting-on-a-smartphone-sitting-at-the-cafe-table-happy-freelancer-or-office.jpg?s=612x612&w=0&k=20&c=8M3nynjkytfhwyhchxP2fg_GWfl4at8NpG4NxgI04-I="
                     alt="login form"
                     className="img-fluid"
                     style={{ borderRadius: "1rem 0 0 1rem" }}
@@ -146,7 +148,7 @@ function Log() {
                         </button>
                       </div>
                       <Link
-                        to="/forgot"
+                        to="/user/forgot"
                         className="small text-muted"
                       >
                         Forgot password?

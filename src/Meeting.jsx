@@ -2,8 +2,7 @@ import React,{useEffect,useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Base_Url } from '../config/api';
-import { PRODUCT_STATUS } from './Data/Product'; 
-import { PRODUCT_TYPE } from './Data/producttypes';
+import { MEET_STATUS } from './Data/meetingstatus'; 
 
 
 
@@ -11,46 +10,46 @@ import { PRODUCT_TYPE } from './Data/producttypes';
 
 
 
-function AddProduct() {   
+
+function Meeting() {   
   
-    const [open,setOpen]=useState(true);
-    const [newrequest, setNewRequest] =  useState({
-     product_name:"",
-      product_type:"",
-       product_price: "",
-        product_stock: "",
-       product_desc: "",
-       product_status: "",
+   
+    const [newmeet, setNewMeet] =  useState({
+     name:"",
+      email:"",
+       time: "",
+        date: "",
+       subject: "",
+       meet_status: "",
       
      
     });
     const navigate = useNavigate;
     const handleSubmit = async(e) => {
         e.preventDefault(); 
-        setOpen(true);
+       
         
 
-        const request= {...newrequest }
+        const meet= {...newmeet,meet_status:MEET_STATUS.open }
         
         try {
         const token = localStorage.getItem('tokenAuth')
         const email = localStorage.getItem('email')
                 console.log(token, email)
             const config = { headers : {"x-auth-token" : token}} 
-        const response = await axios.post(`${Base_Url}/ad/add`, 
-        request, config) 
+        const response = await axios.post(`${Base_Url}/mag/add`, 
+        meet, config) 
         //console.log(response);
         if(response.status === 200){
             //console.log(response)
            
-            setNewRequest({
-                product_name:"",
-                product_type:"",
-                 product_price: "",
-               
-                 product_stock: "",
-                 product_desc: "",
-                 product_status: "",
+            setNewMeet({
+                name:"",
+                email:"",
+                 time: "",
+                  date: "",
+                 subject: "",
+                
                 
                 
                 
@@ -64,10 +63,7 @@ function AddProduct() {
       catch(error){
         console.log(error);
   
-        if( error.response.status === 403) {
-          window.alert("Session expired. Login again to continue")
-          navigate('/')
-      }
+      
     }
 }
 
@@ -93,18 +89,18 @@ function AddProduct() {
               <div className="card" style={{ borderRadius: "15px" }}>
                 <div className="card-body p-4">
                   <h2 className="text-uppercase text-center mb-4">
-                ADD PRODUCT DETAILS
+                Schedule Meeting 
                   </h2>
 
                   <form onSubmit={handleSubmit}>
                     <div className="form-outline mb-2">
                       <input
                         type="text"
-                        id="product_name"
+                        id="name"
                         className="form-control"
-                        placeholder="Enter product_namet"
-                        value={newrequest.product_name}
-                        onChange={(e) => setNewRequest({...newrequest, product_name: e.target.value})}
+                        placeholder="Enter name"
+                        value={newmeet.name}
+                        onChange={(e) => setNewMeet({...newmeet, name: e.target.value})}
 
                       
                       />
@@ -114,11 +110,11 @@ function AddProduct() {
                     <div className="form-outline mb-2">
                       <input
                         type="text"
-                        id="product_type"
+                        id="email"
                         className="form-control"
-                        placeholder="Enter the product_type"
-                        value={newrequest.product_type}
-                        onChange={(e) => setNewRequest({...newrequest, product_type: e.target.value})}
+                        placeholder="Enter the email"
+                        value={newmeet.email}
+                        onChange={(e) => setNewMeet({...newmeet, email: e.target.value})}
                         
                       />
                      
@@ -126,12 +122,12 @@ function AddProduct() {
                     <div className="form-outline mb-2">
                       <input
                         type="number"
-                        id="product_pricel"
+                        id="time"
                         className="form-control"
-                        placeholder="Enter the product_price"
-                        value={newrequest.product_price}
+                        placeholder="Enter the time of  meeting"
+                        value={newmeet.time}
 
-                        onChange={(e) => setNewRequest({...newrequest, product_price: e.target.value})}
+                        onChange={(e) => setNewMeet({...newmeet, time: e.target.value})}
 
 
                       
@@ -142,12 +138,12 @@ function AddProduct() {
                    
                     <div className="form-outline mb-2">
                       <input
-                        type="number"
+                        type="date"
                         id="product_stock"
                         className="form-control"
-                        placeholder="Enter your product_stock"
-                        value={newrequest.product_stock}
-                        onChange={(e) => setNewRequest({...newrequest, product_stock: e.target.value})}
+                        placeholder="Enter the date of meeting"
+                        value={newmeet.date}
+                        onChange={(e) => setNewMeet({...newmeet, date: e.target.value})}
                        
                       />
                       
@@ -155,11 +151,11 @@ function AddProduct() {
                     <div className="form-outline mb-2">
                       <input
                         type="text"
-                        id="product_des"
+                        id="subject"
                         className="form-control"
-                        placeholder="Enter your product_description"
-                        value={newrequest.product_desc}
-                        onChange={(e) => setNewRequest({...newrequest, product_desc: e.target.value})}
+                        placeholder="Enter the subject of the meeting"
+                        value={newmeet.subject}
+                        onChange={(e) => setNewMeet({...newmeet, subject: e.target.value})}
                        
                       />
                       
@@ -170,8 +166,8 @@ function AddProduct() {
                         id="product_status"
                         className="form-control"
                         placeholder="Enter the product_status"
-                        value={newrequest.product_status}
-                        onChange={(e) => setNewRequest({...newrequest, product_status: e.target.value})}
+                        value={newmeet.meet_status}
+                        onChange={(e) => setNewMeet({...newmeet, meet_status: e.target.value})}
                        
                       />
                       </div>
@@ -214,4 +210,4 @@ function AddProduct() {
   )
 }
 
-export default AddProduct;
+export default Meeting;

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Base_Url } from '../../config/api';
 import { ORDER_STATUS } from '../Data/order_status';
+import ViewOrder from './ViewOrder';
 
 
 
@@ -54,9 +55,10 @@ function UpdateOrder() {
     }
 }
     return(
-        <div>
+        <div >
              <form onSubmit={handleSubmit}>
-             <div className="form-outline mb-2">
+             
+             <div className="vw-100  d-flex align-items-center justify-content-center">
                       <input
                         type="text"
                         id="cust_phone"
@@ -66,7 +68,7 @@ function UpdateOrder() {
                         onChange={(e) => setNewOrder({...neworder, orderID: e.target.value})}
                        
                       />
-                      </div>
+                      
                       <select
   className="form-select"
   aria-label="Default select example"
@@ -79,13 +81,18 @@ function UpdateOrder() {
   <option value={ORDER_STATUS.Delivered}>DELIVERED</option>
   <option value={ORDER_STATUS.Cancelled}>CANCELLED</option>
 </select>
-<div className="d-flex justify-content-center">
+
+
+
                       <button
                         type="submit"
                         className="btn btn-dark btn-lg btn-block"
                       >
                        submit
                       </button>
+                    </div>
+                    <div className='container d-flex align-items-center justify-content-center mt-5'>
+                    <ViewOrder/>
                     </div>
 </form>
 </div>

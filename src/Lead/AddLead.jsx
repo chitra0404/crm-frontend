@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import { LEAD_STATUS } from '../Data/leadstatus';
 
+
 import axios from 'axios';
 import { Base_Url } from '../../config/api';
 import { useNavigate } from 'react-router-dom';
@@ -14,6 +15,7 @@ import { useNavigate } from 'react-router-dom';
 function ADDLead() {
   
     const [lead, setLead] = useState([]);
+    const [filter,setFilter]=useState('');
     const [newLead, setNewLead] =  useState({
         lead_id: "",
         lead_name : "",
@@ -25,6 +27,7 @@ function ADDLead() {
     const navigate = useNavigate;
     const [open, setOpen] = useState(false);
     const handleClose = () => { setOpen(false)}
+    
     const handleSubmit = async(e) => {
         e.preventDefault(); 
         setOpen(true);
@@ -55,7 +58,7 @@ function ADDLead() {
                 lead_name : "",
                 lead_email: "",
                 lead_phone: "",
-                lead_status : "",
+               
                 
                 
             })
@@ -76,7 +79,7 @@ function ADDLead() {
 }
 
 return(  <div>
-    <section className="vh-100" style={{ backgroundColor: "#9A616D" }}>
+    <section className="vh-100 vw-100" >
       <div className="d-flex align-items-center h-100 gradient-custom-3">
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -93,7 +96,7 @@ return(  <div>
                         type="text"
                         id="lead_name"
                         className="form-control"
-                        placeholder="Enter your name"
+                        placeholder="Enter lead name"
                         value={newLead.lead_name}
 
                         onChange={(e) => setNewLead({...newLead, lead_name: e.target.value})}
@@ -108,7 +111,7 @@ return(  <div>
                         type="email"
                         id="lead_email"
                         className="form-control"
-                        placeholder="Enter your email"
+                        placeholder="Enter lead email"
                         value={newLead.lead_email}
                         onChange={(e) => setNewLead({...newLead, lead_email: e.target.value})}
                         
@@ -122,7 +125,7 @@ return(  <div>
                         type="text"
                         id="lead_phone"
                         className="form-control"
-                        placeholder="Enter your role"
+                        placeholder="Enter lead phonenumber"
                         value={newLead.lead_phone}
                         onChange={(e) => setNewLead({...newLead, lead_phone: e.target.value})}
                        
@@ -131,7 +134,7 @@ return(  <div>
                     </div>
                     {/* <select className="form-select" aria-label="Default select example">
   <option selected>Open this select menu</option>
-  <option value="APPROACHED">APPROACHED"</option>
+  <option value="APPROACHED">APPROACHED</option>
   <option value="NEGOTIATION">NEGOTIATION</option>
   <option value="EARNED">EARNED</option>
   <option value=" LOST">

@@ -49,12 +49,12 @@ function CancelRequest() {
 
 
   return (
-    <div>
-     <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-  <button className="btn btn-primary me-md-2" type="button" onClick={()=>navigate("/request")} >ADD NEWREQUEST</button>
+    <div className='vh-100 mt-5 pt-2'>
+     {/* <div className=" justify-content-center ">
+  <button className="btn btn-primary " type="button" onClick={()=>navigate("/request")} >ADD NEWREQUEST</button>
   
- </div>
-    <table className='table table-hover'>
+ </div> */}
+    <table className='table vw-100 mt-5 pt-2 '>
        <thead className='table-dark'>
           <tr>
                 <th >RequestID</th>
@@ -77,7 +77,7 @@ function CancelRequest() {
             {
     request.map((item, index) => (
                 // update===item.id?<EditList item={item} user={user} setUser={setUser} handleEdit={handleEdit}  />:
-                <tr  className="table-success" key={index}> 
+                <tr  className="table" key={index}> 
                     <td >{item.requestID}</td>
                     <td>{item.title}</td>
                     <td>{item.orderId}</td>

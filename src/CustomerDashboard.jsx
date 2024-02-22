@@ -11,7 +11,7 @@ function CustomerDashboard() {
   }
   return (
     <div>
-        <nav className="navbar fixed-top navbar-light ">
+        <nav className="navbar fixed-top navbar-light bg-primary p-2 text-white bg-opacity-75 ">
         <div className="container-fluid"> 
     <nav className="navbar navbar-light" >
     <nav className="navbar navbar-expand-lg navbar-light ">
@@ -24,16 +24,18 @@ function CustomerDashboard() {
     <div className="collapse navbar-collapse" id="navbarNav">
     <ul className="nav  justify-content-end">
   <li className="nav-item">
-    <a className="nav-link  active" aria-current="page" href="#"><Link to="/getproducts">viewproduct</Link></a>
+    <a className="nav-link  active" aria-current="page" href="#"><Link className='text-white' to="/getproducts">viewproduct</Link></a>
   </li>
   <li className="nav-item">
-    <a className="nav-link" href="#"><Link to="/cancelreq">cancelrequest</Link></a>
+    <a className="nav-link" href="#"><Link className="text-white" to="/getmeet">meeting details</Link></a>
   </li>
   <li className="nav-item">
-   <button onClick={handleLogout}>Logout</button>
+    <a className="nav-link" href="#"><Link className="text-white" to="/meet">schedule meeting</Link></a>
   </li>
+ 
   
 </ul>
+
     </div>
        
          
@@ -45,6 +47,11 @@ function CustomerDashboard() {
   </div>
 </nav>
   </nav>
+  <ul class="nav justify-content-end md-end">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" ><button className='btn btn-primary me-md-2' onClick={handleLogout}>logout</button></a>
+  </li>
+  </ul>
   </div>
  
 </nav>

@@ -39,13 +39,13 @@ export const data = {
     labels,
     datasets: [
         {
-            label: "customer",
+            label: "existing customer",
             data: [65, 40, 60, 30, 20, 50],
             backgroundColor: "rgba(54,185,204,1)",
             barPercentage: 0.4
         },
         {
-            label: "product",
+            label: "new customer",
             data: [30, 20, 15, 10, 25, 8],
             backgroundColor: "rgba(28,200,138,1)",
             barPercentage: 0.4

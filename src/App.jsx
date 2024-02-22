@@ -1,6 +1,7 @@
 import { useState ,useEffect} from 'react'
 import { BrowserRouter as Router, Route, Routes,useLocation } from "react-router-dom";
 import { Base_Url } from '../config/api';
+import './App.css';
 import Register from './Register';
 
 import Login from './Login';
@@ -29,6 +30,14 @@ import GetEmp from './GetEmp';
 import Contact from './contactdetails';
 import StDashboard from './stDashboard';
 import AccActivation from './staff/AccountActivation';
+import ViewOrder from './order/ViewOrder';
+import ForgetPass from './staff/ForgetPass';
+import PassReset from './staff/PassReset';
+import AddContact from './AddContact';
+import Meeting from './Meeting';
+import GetMeet from './meet/GetMeet';
+import UpdateMeet from './meet/UpdateMeet';
+import MeetingDetail from './meet/MeetingDetail';
 
 
 
@@ -48,10 +57,16 @@ function App() {
         <Route path="/user/register" element={<Regis/>}></Route>
         <Route path="/user/acc/:id" element={<AccActivation/>}></Route> 
         <Route path="/users/login" element={<Log/>}></Route>
-        <Route path="/staf" element={<StaffDashboard/>}></Route>
+        <Route path="/user/forgot" element={<ForgetPass/>}></Route>
+        <Route path="user/reset/:id" element={<PassReset/>}></Route>
+
+        
+        <Route path="/staf" element={<StDashboard/>}></Route>
    
         <Route path="/forgot" element={<ForgotPassword/>}></Route>
         <Route path="/reset/:id" element={<PasswordUpdate/>}></Route>
+       
+        <Route Path="/user/Password" element={<PassReset/>}></Route>
         <Route path="/emp" element={<GetEmp/>}></Route>
         <Route path="/contact" element={<Contact/>}></Route>
        
@@ -61,18 +76,24 @@ function App() {
 
 
         //Customer
-        
+        <Route path="/s" element={<StaffDashboard/>}></Route>
         <Route path="/cus" element={<CustomerDashboard/>}></Route>
         <Route path="/getproducts" element={<ViewProduct/>}></Route>
+        <Route path="/meet" element={<Meeting/>}></Route>
+        <Route path="/getmeet" element={<GetMeet/>}></Route>
+        <Route path="/updatemeet" element={<UpdateMeet/>}></Route>
+        <Route path="/allmeet" element={<MeetingDetail/>}></Route>
 
         <Route path="/lead" element={<Lead/>}></Route>
         <Route path="/order" element={<GetOrder/>}></Route>
+        <Route path="/vieworder" element={<ViewOrder/>}></Route>
         <Route path="/update" element={<EditLead/>}></Route>
         <Route path="/request" element={<GetRequest></GetRequest>}></Route>
         <Route path="/updateorder" element={<UpdateOrder/>}></Route>
         <Route path="/getreq" element={<GetReq/>}></Route>
         <Route path="/addlead" element={<ADDLead/>}></Route>
-    
+        <Route path="/contact" element={<Contact/>}></Route>
+        <Route path="/createcontact" element={<AddContact/>}></Route>
       <Route path="/addproduct" element={<AddProduct/>}></Route>
       <Route path="/all" element={<ALLReq/>}></Route>
       <Route path="/cancelreq" element={<CancelRequest/>}></Route>

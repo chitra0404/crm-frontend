@@ -17,6 +17,7 @@ function Regis() {
       role
     };    
     try {
+      
       await axios.post(`${Base_Url}/user/register`, userData)
       .then(res=>console.log(res));
       
@@ -86,15 +87,26 @@ function Regis() {
   });
 
   return (
-    <section className="vh-100" style={{ backgroundColor: "#0d6efd" }}>
+    <section className="vw-100 vh-100 justify-content-center align-items-center" style={{ backgroundColor: "#0d6efd" }}>
       <div className="d-flex align-items-center h-100 gradient-custom-3">
         <div className="container h-100">
+       
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-12 justify-content-center align-items-center   ">
               <div className="card" style={{ borderRadius: "15px" }}>
-                <div className="card-body p-4">
+              <div className="row">
+                <div className="col-md-6 col-lg-5 d-none d-md-block">
+                  <img
+                    src="https://www.creativehatti.com/wp-content/uploads/edd/2022/01/Girl-graphic-designer-is-sitting-on-a-chair-and-doing-work-on-laptop-7-large.jpg"
+                    alt="login form"
+                    className="img-fluid"
+                    style={{ borderRadius: "1rem 0 0 1rem" }}
+                  />
+                </div>
+                <div className="col-md-6 col-lg-7 d-flex align-items-center">
+                  <div className="card-body p-lg-3 text-black">
                   <h2 className="text-uppercase text-center mb-4">
-                    Create an account
+                    You can register here!
                   </h2>
 
                   <form onSubmit={Formik.handleSubmit}>
@@ -230,6 +242,8 @@ function Regis() {
             </div>
           </div>
         </div>
+      </div>
+      </div>
       </div>
     </section>
   );

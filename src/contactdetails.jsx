@@ -15,16 +15,16 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 function Contact() {
   
-    const [emp, setEmp] = useState([]);
+    const [contact, setContact] = useState([]);
     const navigate=useNavigate();
     
 
     useEffect(() => {
-         axios.get(`${Base_Url}/user/`)
+         axios.get(`${Base_Url}/contact/get`)
             .then(res => {
                
-                 setEmp([emp,...res.data.message]);
-                console.log("Use data:", res.data.message);
+                 setContact([contact,...res.data]);
+                console.log("Use data:", res.data);
                 localStorage.setItem("data",JSON.stringify(res.data));
             
             })
@@ -36,10 +36,9 @@ function Contact() {
 
 
   return (
-    <div >
+    <div className='vh-100 vw-100 justify-content-center mt-5 pt-2' >
     <h2 className="bg-warning">employeeDetails</h2>
     <div className="d-grid gap-2 d-md-flex justify-content-md-center">
-  <button className="btn btn-primary me-md-2" type="button" onClick={()=>navigate("/user/register")} >ADD LEAD</button>
   
 </div>
  
@@ -47,8 +46,13 @@ function Contact() {
         <thead className='table-dark'>
             <tr>
            
-                <th>EmpName</th>
-                <th>Empemail</th>
+                <th>ContactId</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phonenumber</th>
+                <th>email</th>
+
+
                 
               
                 <th></th>
@@ -62,11 +66,12 @@ function Contact() {
         </thead>
         <tbody>
             {
-    emp.map((item, index) => (
-                // update===item.id?<EditList item={item} user={user} setUser={setUser} handleEdit={handleEdit}  />:
-                <tr  className="table-success" key={index}> 
-                   
+    contact.map((item, index) => (
+                <tr  className="table" key={index}> 
+                    <td>{item.contact_id}</td>
                     <td>{item.name}</td>
+                    <td>{item.address}</td>
+                    <td>{item.phonenumber}</td>
                     <td>{item.email}</td>
                   
                     

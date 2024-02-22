@@ -1,10 +1,9 @@
 import React,{useEffect,useState} from 'react';
-import { LEAD_STATUS } from '../Data/leadstatus';
+import { MEET_STATUS } from '../Data/meetingstatus';
 
 import axios from 'axios';
 import { Base_Url } from '../../config/api';
 import { Navigate, useNavigate } from 'react-router-dom';
-import EditLead from './EditLead';
 
 
 
@@ -14,32 +13,27 @@ import EditLead from './EditLead';
 
 
 
-function Lead() {
+
+function MeetingDetail() {
   
-    const [lead, setLead] = useState([]);
+    const [meet, setMeet] = useState([]);
     const [update,setUpdate]=useState(-1);
     const navigate=useNavigate();
     
 
     useEffect(() => {
-         axios.get(`${Base_Url}/ad/getlead`)
+         axios.get(`${Base_Url}/mag/get`)
             .then(res => {
                 
-                 setLead([lead,...res.data]);
+                 setMeet([meet,...res.data]);
                 console.log("Use data:", res.data);
                 localStorage.setItem("data",JSON.stringify(res.data));
             })
     }, []);
     
-    
-    const updateLead = (id) => {
-      const current= lead.filter( (leads) => leads.leadid=== id)
-      setLead[{...current}]
-      console.log(current);
-      navigate('/update')
-  }
+  
    const deleteLead=(id) =>{
-     axios.delete(`${Base_Url}/ad/del/${id}`)
+     axios.delete(`${Base_Url}/mag/get`)
      
      const removeUser=lead.filter((leads)=>leads._id!=id);
      console.log("hi",removeUser);
@@ -60,12 +54,14 @@ function Lead() {
         <thead className='table-dark'>
             <tr>
               <th>ID</th>
-                <th >LeadId</th>
-                <th>LeadName</th>
-                <th>Lead_email</th>
-                <th>Lead_phone</th>
-                <th>LeadStatus</th>
-                <th></th>
+                <th >MeetId</th>
+                <th>Name</th>
+                <th>email</th>
+                <th>time</th>
+                <th>Date</th>
+                <th>Subject</th>
+                <th>MeetingStatus</th>
+                
                 
 
 
@@ -76,17 +72,17 @@ function Lead() {
         </thead>
         <tbody>
             {
-    lead.map((item, index) => (
-                 update===item._id?<EditLead item={item} lead={lead} set={setLead} handleEdit={handleEdit}  />:
+    meet.map((item, index) => (
                 <tr  className="table" key={index}> 
                 <td>{item._id}</td>
-                    <td >{item.leadid}</td>
-                    <td>{item.lead_name}</td>
-                    <td>{item.lead_email}</td>
-                    <td>{item.lead_phone}</td>
+                    <td >{item.meet_id}</td>
+                    <td>{item.name}</td>
+                    <td>{item.email}</td>
+                    <td>{item.time}</td>
+                    <td>{item.date}</td>
+                    <td>{item.subject}</td>
                     
-                    <td>{item.lead_status}</td>
-                 <td><button type="submit" className='btn btn-success'  onClick={ () => deleteLead(item._id)}>Delete</button></td>
+                    <td>{item.meet_status}</td>
 
                     <td></td>
 
@@ -102,4 +98,4 @@ function Lead() {
   )
 }
 
-export default Lead;
+export default MeetingDetail;

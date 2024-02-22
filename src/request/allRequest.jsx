@@ -51,7 +51,7 @@ function ALLReq() {
             {
     request.map((item, index) => (
                 // update===item.id?<EditList item={item} user={user} setUser={setUser} handleEdit={handleEdit}  />:
-                <tr  className="table-success" key={index}> 
+                <tr  className="table" key={index}> 
                 <td >{item.requestID}</td>
                 <td>{item.title}</td>
                 <td>{item.orderId}</td>

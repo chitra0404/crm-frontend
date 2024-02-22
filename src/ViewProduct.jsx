@@ -24,9 +24,10 @@ function ViewProduct() {
 
   return (
     <div>
-    <h2 className="bg-warning">ProductDetails</h2>
- 
-    <table className='table table-hover'>
+        <div className='vh-100 vw-100 justify-content-center mt-5 pt-2'>
+    {/* <h2 className="bg-warning text-center">ProductDetails</h2>
+  */}
+    <table className='table vw-100 mt-5 pt-4'>
         <thead className='table-dark'>
             <tr>
                 <th >ProductId</th>
@@ -43,11 +44,11 @@ function ViewProduct() {
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody className='vw-100 justify-content-center'>
             {
     product.map((item, index) => (
                 // update===item.id?<EditList item={item} user={user} setUser={setUser} handleEdit={handleEdit}  />:
-                <tr  className="table-success" key={index}> 
+                <tr  className="" key={index}> 
                     <td >{item.product_id}</td>
                     <td>{item.product_name}</td>
                     <td>{item.product_type}</td>
@@ -62,7 +63,7 @@ function ViewProduct() {
            
         </tbody>
     </table>
-    
+    </div>
     </div>
   )
 }

@@ -91,7 +91,7 @@ function GetRequest() {
   return (
     <div>
     <div>
-    <section className="vh-100" style={{ backgroundColor: "#9A616D" }}>
+    <section className="vh-100 vw-100 mt-5" >
       <div className="d-flex align-items-center h-100 gradient-custom-3">
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -99,7 +99,7 @@ function GetRequest() {
               <div className="card" style={{ borderRadius: "15px" }}>
                 <div className="card-body p-4">
                   <h2 className="text-uppercase text-center mb-4">
-                    Create an account
+                    Create Request
                   </h2>
 
                   <form onSubmit={handleSubmit}>
