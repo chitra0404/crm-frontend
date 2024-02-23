@@ -55,7 +55,7 @@ function App() {
       <Route path="/acc/:id" element={<AccountActivation/>}></Route>
       <Route path="/login" element={<Login/>}></Route>
         <Route path="/user/register" element={<Regis/>}></Route>
-        <Route path="/user/acc" element={<AccActivation/>}></Route> 
+        <Route path="/activate/:id" element={<AccActivation/>}></Route> 
         <Route path="/users/login" element={<Log/>}></Route>
         <Route path="/user/forgot" element={<ForgetPass/>}></Route>
         <Route path="user/reset/:id" element={<PassReset/>}></Route>

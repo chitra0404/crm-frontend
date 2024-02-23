@@ -10,12 +10,10 @@ function AccountActivation() {
   const [activated, setActivated] = useState(false);
   const [done, setDone] = useState(false);
 
- 
-  const HandleActivate = async () => {
+  const HandleActivate = async (id) => {
     try {
-      // Make the request to activate the account without passing the ID
-      await axios.patch(`${Base_Url}/activate`)
-        .then(res => console.log(res));
+        await axios.patch(`${Base_Url}/activate/${id}`)
+      .then(res=>console.log(res));
       setActivated(true);
       setTimeout(() => {
         Navigate("/");
@@ -43,7 +41,7 @@ function AccountActivation() {
                   <Link>
                     <button
                       className="btn btn-primary"
-                      onClick={HandleActivate}
+                      onClick={() => HandleActivate(id)}
                     >
                       Click Me to Activate
                     </button>
