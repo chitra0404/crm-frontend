@@ -19,7 +19,7 @@ function AccActivation() {
         setActivated(activated);
       } catch (err) {
         console.error(err);
-        setDone(false);
+        setDone(true);
       }
     };
 
@@ -71,7 +71,7 @@ function AccActivation() {
                   {activated
                     ? "Account Activated Successfully"
                     : done
-                    ? " Account  Activated"
+                    ? " Account  Activated already"
                     : null}
                 </span>
               </p>
