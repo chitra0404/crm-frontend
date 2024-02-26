@@ -9,7 +9,22 @@ function AccountActivation() {
 
   const [activated, setActivated] = useState(false);
   const [done, setDone] = useState(false);
+  
+  useEffect(() => {
+    const checkAccountActivation = async () => {
+      try {
+        // Make an API call to check if the account is already activated
+        const response = await axios.get(`${Base_Url}/check-activation/${id}`);
+        const { activated } = response.data;
+        setActivated(activated);
+      } catch (err) {
+        console.error(err);
+        setDone(false);
+      }
+    };
 
+    checkAccountActivation();
+  }, [id]);
   const HandleActivate = async (id) => {
     try {
         await axios.patch(`${Base_Url}/activate/${id}`)
