@@ -71,7 +71,7 @@ function AccActivation() {
                   {activated
                     ? "Account Activated Successfully"
                     : done
-                    ? " Account  Activated already"
+                    ? " already Activated Account"
                     : null}
                 </span>
               </p>
