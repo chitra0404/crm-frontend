@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { Base_Url } from "../config/api";
@@ -19,7 +19,7 @@ function AccountActivation() {
         setActivated(activated);
       } catch (err) {
         console.error(err);
-        setDone(false);
+        setDone(true);
       }
     };
 
@@ -67,7 +67,7 @@ function AccountActivation() {
               <p>
                 <span>
                   {activated ? "Account Activated Successfully" : null}
-                  <span>{done ? "Activated Account" : null}</span>
+                  <span>{done ? "already account activated" : null}</span>
                 </span>
               </p>
             </div>
