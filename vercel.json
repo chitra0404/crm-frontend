@@ -1,8 +1,1 @@
-{
-    "rewrites": [
-      {
-        "source": "/user/acc/:id",
-        "destination": "https://crm-frontend-blush.vercel.app/user/acc/:id"
-      }
-    ]
-  }
+{   "rewrites": [     { "source": "/(.*)", "destination": "/index.html" }   ] }
