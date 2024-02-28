@@ -9,10 +9,10 @@ Currently, two official plugins are available:
 
 
 Give Product type
-  "shampoo" 
-    "conditioner"
-    "bodywash"
-    "bodylotion"
-    "perfume"
-    "serum"
-    "facewash"
+   "shampoo" : "shampoo",
+    "conditioner": "condi",
+    "bodywash": "bw",
+    "bodylotion": "bl",
+    "perfume": "perfume",
+    "serum": "Serum",
+    "facewash": "fw"
