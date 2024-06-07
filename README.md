@@ -16,3 +16,4 @@ Give Product type
     "perfume": "perfume",
     "serum": "Serum",
     "facewash": "fw"
+
